@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* Custom color palette */
+:root {
+  --primary: 255 115 179; /* Pink accent */
+  --secondary: 56 189 248; /* Sky blue */
+  --accent: 120 113 108; /* Warm gray */
+  --bg-primary: 250 250 249; /* Stone 50 */
+  --bg-secondary: 245 245 244; /* Stone 100 */
+  --text-primary: 28 25 23; /* Stone 900 */
+  --text-secondary: 87 83 78; /* Stone 600 */
+}
+
+.dark {
+  --primary: 255 115 179;
+  --secondary: 56 189 248;
+  --accent: 168 162 158; /* Stone 400 */
+  --bg-primary: 12 10 9; /* Stone 950 */
+  --bg-secondary: 28 25 23; /* Stone 900 */
+  --text-primary: 250 250 249; /* Stone 50 */
+  --text-secondary: 168 162 158; /* Stone 400 */
+}
+
+@theme {
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+  --color-accent: rgb(var(--accent));
+  --color-bg-primary: rgb(var(--bg-primary));
+  --color-bg-secondary: rgb(var(--bg-secondary));
+  --color-text-primary: rgb(var(--text-primary));
+  --color-text-secondary: rgb(var(--text-secondary));
+}
+
+body {
+  @apply bg-bg-primary text-text-primary transition-colors duration-500;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-primary/20;
+}
