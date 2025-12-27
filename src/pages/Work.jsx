@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useProjects } from "../store/projectStore";
 import ProjectCard from "../components/ProjectCard";
-import Header from "../components/Header";
 
 const Work = () => {
   const { projects, fetchProjects } = useProjects();
@@ -30,10 +29,8 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen"
+      className="min-h-screen pt-20"
     >
-      <Navigation />
-
       {/* Editorial Header */}
       <section className="py-24 px-8 md:px-16">
         <div className="max-w-6xl mx-auto">
