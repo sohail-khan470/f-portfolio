@@ -1,4 +1,4 @@
-Firebase Setup Guide for Sania Portfolio
+Firebase Setup Guide for Fatima Portfolio
 📋 Prerequisites
 Node.js 18+ installed
 
@@ -12,7 +12,7 @@ Google account (Gmail)
    text
 1. Go to: https://console.firebase.google.com/
 1. Click "Create a project"
-1. Name: "sania-portfolio"
+1. Name: "fatima-portfolio"
 1. Disable Google Analytics (optional)
 1. Click "Create project"
 1. Enable Required Services
@@ -42,7 +42,7 @@ Google account (Gmail)
 1. Go to: Project Settings (gear icon)
 1. Scroll to "Your apps" section
 1. Click "</>" (Web app) icon
-1. App name: "sania-portfolio"
+1. App name: "fatima-portfolio"
 1. Click "Register app"
 1. COPY the configuration object
 1. Create .env File
@@ -69,7 +69,7 @@ match /projects/{project} {
 allow read: if true;
 allow write: if request.auth != null &&
 request.auth.token.email in [
-"sania@designer.com",
+"fatima@designer.com",
 "developer@studio.com"
 ];
 }
@@ -88,7 +88,7 @@ match /projects/{allPaths=\*\*} {
 allow read: if true;
 allow write: if request.auth != null &&
 request.auth.token.email in [
-"sania@designer.com",
+"fatima@designer.com",
 "developer@studio.com"
 ];
 }
@@ -102,7 +102,7 @@ Click Publish.
 1. Click "Add user"
 1. Add FIRST user:
 
-   - Email: sania@designer.com
+   - Email: fatima@designer.com
    - Password: [choose secure password]
    - Click "Add user"
 
@@ -134,7 +134,7 @@ npm run preview
 Login URL: http://localhost:5173/login
 Admin Emails:
 
-sania@designer.com
+fatima@designer.com
 
 developer@studio.com
 Password: (what you set in Firebase)
@@ -219,7 +219,7 @@ match /projects/{project} {
 allow read: if true;
 allow write: if request.auth != null &&
 request.auth.token.email in [
-"sania@designer.com",
+"fatima@designer.com",
 "developer@studio.com"
 ];
 }
@@ -233,7 +233,7 @@ match /projects/{allPaths=\*\*} {
 allow read: if true;
 allow write: if request.auth != null &&
 request.auth.token.email in [
-"sania@designer.com",
+"fatima@designer.com",
 "developer@studio.com"
 ];
 }

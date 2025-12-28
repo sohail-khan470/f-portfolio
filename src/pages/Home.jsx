@@ -27,7 +27,7 @@ const Home = () => {
               </div>
 
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-                <span className="block">Hi, I'm Sania</span>
+                <span className="block">Hi, I'm Fatima</span>
                 <span className="text-primary">UI/UX Designer</span>
                 <span className="block text-text-secondary">
                   crafting beautiful & usable digital experiences

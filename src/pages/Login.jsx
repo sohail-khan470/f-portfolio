@@ -38,7 +38,7 @@ const Login = () => {
         >
           <Link to="/" className="inline-block mb-8">
             <div className="text-3xl font-bold">
-              <span className="text-primary">Sania</span>
+              <span className="text-primary">Fatima</span>
               <span className="text-accent">.design</span>
             </div>
           </Link>
@@ -78,7 +78,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   className="w-full pl-12 pr-4 py-3 bg-bg-primary rounded-xl border border-accent/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
-                  placeholder="hello@sania.design"
+                  placeholder="hello@fatima.design"
                 />
               </div>
             </div>

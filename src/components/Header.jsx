@@ -27,7 +27,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold tracking-tight"
             >
-              <span className="text-primary">Sania</span>
+              <span className="text-primary">Fatima</span>
               <span className="text-accent group-hover:text-primary transition-colors">
                 .design
               </span>
