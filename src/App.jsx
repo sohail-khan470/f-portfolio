@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 import useStore from "./store";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -31,6 +32,7 @@ function App() {
         exit={{ opacity: 0 }}
         className="min-h-screen bg-bg-primary transition-colors duration-500"
       >
+        <Toaster position="top-right" />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, ArrowRight, Eye, EyeOff } from "lucide-react";
+import toast from "react-hot-toast";
 import useStore from "../store";
 
 const Login = () => {
@@ -19,9 +20,11 @@ const Login = () => {
     const result = await login(email, password);
 
     if (result.success) {
+      toast.success("Login successful! Welcome back.");
       navigate("/admin");
     } else {
-      setError("Invalid email or password. Please try again.");
+      setError(result.error);
+      toast.error(result.error);
     }
   };
 
