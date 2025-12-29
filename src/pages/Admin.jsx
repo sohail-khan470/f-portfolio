@@ -102,26 +102,26 @@ const Admin = () => {
           transition={{ delay: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10"
         >
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10">
+          <div className="p-6 rounded-2xl bg-linear-to-br from-primary/10 to-secondary/10">
             <div className="text-3xl font-bold mb-2">{projects.length}</div>
             <div className="text-text-secondary">Total Projects</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-secondary/10 to-accent/10">
+          <div className="p-6 rounded-2xl bg-linear-to-br from-secondary/10 to-accent/10">
             <div className="text-3xl font-bold mb-2">
               {projects.filter((p) => p.category === "Web Design").length}
             </div>
             <div className="text-text-secondary">Web Design</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-primary/10">
+          <div className="p-6 rounded-2xl bg-linear-to-br from-accent/10 to-primary/10">
             <div className="text-3xl font-bold mb-2">
               {projects.filter((p) => p.featured).length}
             </div>
             <div className="text-text-secondary">Featured</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10">
+          <div className="p-6 rounded-2xl bg-linear-to-br from-primary/10 to-accent/10">
             <div className="flex items-center justify-center">
               <Cloud className="w-8 h-8 text-primary" />
             </div>
@@ -169,7 +169,7 @@ const Admin = () => {
                   className="group relative overflow-hidden rounded-2xl bg-bg-secondary"
                 >
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
+                  <div className="relative h-48 overflow-hidden bg-linear-to-br from-primary/10 to-secondary/10">
                     {project.imageUrl ? (
                       <>
                         <img
@@ -266,7 +266,7 @@ const Admin = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-2xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-accent/10 p-8"
+          className="rounded-2xl bg-linear-to-r from-primary/5 to-secondary/5 border border-accent/10 p-8"
         >
           <div className="flex items-center gap-3 mb-4">
             <Cloud className="w-6 h-6 text-primary" />

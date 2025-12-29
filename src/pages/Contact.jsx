@@ -202,7 +202,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent"
+              className="mt-12 p-6 rounded-2xl bg-linear-to-br from-primary/10 via-secondary/10 to-transparent"
             >
               <h3 className="text-xl font-semibold mb-4">
                 Current Availability
@@ -397,7 +397,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 p-8 rounded-2xl bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 border border-accent/10"
+          className="mt-20 p-8 rounded-2xl bg-linear-to-r from-primary/5 via-secondary/5 to-primary/5 border border-accent/10"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -419,7 +419,7 @@ const Contact = () => {
             </div>
 
             <div className="relative">
-              <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+              <div className="aspect-video rounded-xl overflow-hidden bg-linear-to-br from-primary/20 to-secondary/20">
                 {/* Decorative map placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
