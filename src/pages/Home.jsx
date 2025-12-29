@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Palette, Zap, Users } from "lucide-react";
+import { useState, useEffect } from "react";
 import useStore from "../store";
 
 const Home = () => {
   const { projects } = useStore();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const featuredProjects = projects
     .filter((project) => project.featured)
@@ -43,11 +52,15 @@ const Home = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-              opacity: [0.02, 0.03, 0.02],
-            }}
+            animate={
+              isMobile
+                ? {}
+                : {
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 90, 0],
+                    opacity: [0.02, 0.03, 0.02],
+                  }
+            }
             transition={{
               duration: 20,
               repeat: Infinity,
@@ -56,11 +69,15 @@ const Home = () => {
             className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-amber-100/10 to-yellow-200/10 blur-3xl"
           />
           <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [90, 0, 90],
-              opacity: [0.03, 0.02, 0.03],
-            }}
+            animate={
+              isMobile
+                ? {}
+                : {
+                    scale: [1.2, 1, 1.2],
+                    rotate: [90, 0, 90],
+                    opacity: [0.03, 0.02, 0.03],
+                  }
+            }
             transition={{
               duration: 15,
               repeat: Infinity,
@@ -69,10 +86,14 @@ const Home = () => {
             className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-orange-100/10 to-amber-200/10 blur-3xl"
           />
           <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.01, 0.02, 0.01],
-            }}
+            animate={
+              isMobile
+                ? {}
+                : {
+                    scale: [1, 1.3, 1],
+                    opacity: [0.01, 0.02, 0.01],
+                  }
+            }
             transition={{
               duration: 10,
               repeat: Infinity,
@@ -171,7 +192,7 @@ const Home = () => {
             <div className="relative h-[500px] flex items-center justify-center">
               {/* Center orbiting elements */}
               <motion.div
-                animate={{ rotate: 360 }}
+                animate={isMobile ? {} : { rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="relative w-72 h-72"
               >
@@ -179,7 +200,7 @@ const Home = () => {
                 {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                   <motion.div
                     key={i}
-                    animate={floatingAnimation}
+                    animate={isMobile ? {} : floatingAnimation}
                     transition={{
                       ...floatingAnimation.transition,
                       delay: i * 0.2,
@@ -197,10 +218,14 @@ const Home = () => {
 
               {/* Center element */}
               <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 180, 360],
-                }}
+                animate={
+                  isMobile
+                    ? {}
+                    : {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 180, 360],
+                      }
+                }
                 transition={{
                   duration: 8,
                   repeat: Infinity,
@@ -209,7 +234,7 @@ const Home = () => {
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-amber-300 via-yellow-300 to-orange-300 shadow-2xl shadow-amber-400/20"
               >
                 <motion.div
-                  animate={{ rotate: -360 }}
+                  animate={isMobile ? {} : { rotate: -360 }}
                   transition={{
                     duration: 8,
                     repeat: Infinity,
@@ -223,10 +248,14 @@ const Home = () => {
 
               {/* Floating decorative elements */}
               <motion.div
-                animate={{
-                  y: [0, -30, 0],
-                  rotate: [0, 10, 0],
-                }}
+                animate={
+                  isMobile
+                    ? {}
+                    : {
+                        y: [0, -30, 0],
+                        rotate: [0, 10, 0],
+                      }
+                }
                 transition={{
                   duration: 4,
                   repeat: Infinity,
@@ -235,10 +264,14 @@ const Home = () => {
                 className="absolute top-10 right-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-yellow-200/35 to-amber-200/35 backdrop-blur-sm border border-yellow-300/25 transform rotate-12"
               />
               <motion.div
-                animate={{
-                  y: [0, 30, 0],
-                  rotate: [0, -10, 0],
-                }}
+                animate={
+                  isMobile
+                    ? {}
+                    : {
+                        y: [0, 30, 0],
+                        rotate: [0, -10, 0],
+                      }
+                }
                 transition={{
                   duration: 5,
                   repeat: Infinity,
@@ -371,17 +404,21 @@ const Home = () => {
 
         {/* Background glow */}
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.02, 0.03, 0.02],
-          }}
+          animate={
+            isMobile
+              ? {}
+              : {
+                  scale: [1, 1.2, 1],
+                  opacity: [0.02, 0.03, 0.02],
+                }
+          }
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full 
-    bg-gradient-to-br from-amber-200/10 via-yellow-200/10 to-orange-200/10 
+          className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full
+    bg-gradient-to-br from-amber-200/10 via-yellow-200/10 to-orange-200/10
     blur-3xl"
         />
 
@@ -472,9 +509,13 @@ const Home = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-amber-50/30 via-yellow-50/30 to-orange-50/30 dark:from-amber-950/10 dark:via-yellow-950/10 dark:to-orange-950/10" />
             <motion.div
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
+              animate={
+                isMobile
+                  ? {}
+                  : {
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }
+              }
               transition={{
                 duration: 10,
                 repeat: Infinity,
