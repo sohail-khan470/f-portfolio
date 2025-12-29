@@ -84,15 +84,6 @@ const Header = () => {
                 )}
               </Link>
             ))}
-
-            {/* Admin Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-yellow-400/10 to-amber-400/10 text-yellow-600 dark:text-yellow-400 rounded-full text-sm font-medium hover:from-yellow-400/20 hover:to-amber-400/20 transition-all border border-yellow-400/20"
-            >
-              Admin
-            </motion.button>
           </nav>
 
           {/* Theme Toggle & Mobile Menu */}
@@ -161,17 +152,6 @@ const Header = () => {
                 </motion.div>
               </Link>
             ))}
-            <motion.button
-              initial={{ opacity: 0, x: -20 }}
-              animate={{
-                opacity: isMenuOpen ? 1 : 0,
-                x: isMenuOpen ? 0 : -20,
-              }}
-              transition={{ delay: navItems.length * 0.1 }}
-              className="block w-full text-left px-4 py-3 rounded-xl bg-gradient-to-r from-yellow-400/10 to-amber-400/10 text-yellow-600 dark:text-yellow-400 font-medium border border-yellow-400/20"
-            >
-              Admin
-            </motion.button>
           </nav>
         </motion.div>
       </div>

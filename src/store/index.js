@@ -80,12 +80,15 @@ const useStore = create((set, get) => ({
 
   // Projects actions
   fetchProjects: async () => {
+    console.log("fetchProjects called");
     try {
       const querySnapshot = await getDocs(collection(db, "projects"));
+      console.log("querySnapshot:", querySnapshot);
       const projects = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
+      console.log("projects fetched:", projects);
       // Sort by featured first, then by creation date
       projects.sort((a, b) => {
         if (a.featured && !b.featured) return -1;
