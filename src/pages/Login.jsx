@@ -38,8 +38,12 @@ const Login = () => {
         >
           <Link to="/" className="inline-block mb-8">
             <div className="text-3xl font-bold">
-              <span className="text-primary">Fatima</span>
-              <span className="text-accent">.design</span>
+              <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-400 bg-clip-text text-transparent">
+                Fatima
+              </span>
+              <span className="bg-gradient-to-r from-yellow-500 via-orange-400 to-amber-500 bg-clip-text text-transparent">
+                .design
+              </span>
             </div>
           </Link>
 
@@ -53,7 +57,7 @@ const Login = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-bg-secondary rounded-2xl p-8 shadow-lg"
+          className="bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 rounded-2xl p-8 shadow-lg border border-amber-200/35 dark:border-amber-700/25"
         >
           {error && (
             <motion.div
@@ -71,13 +75,13 @@ const Login = () => {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-accent" />
+                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-12 pr-4 py-3 bg-bg-primary rounded-xl border border-accent/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3 bg-bg-primary rounded-xl border border-amber-200/35 dark:border-amber-700/25 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-transparent transition-all"
                   placeholder="hello@fatima.design"
                 />
               </div>
@@ -86,19 +90,19 @@ const Login = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Password</label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-accent" />
+                <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-amber-600 dark:text-amber-400" />
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-12 pr-12 py-3 bg-bg-primary rounded-xl border border-accent/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-12 py-3 bg-bg-primary rounded-xl border border-amber-200/35 dark:border-amber-700/25 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-transparent transition-all"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-accent hover:text-text-primary transition-colors"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-amber-600 dark:text-amber-400 hover:text-text-primary transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -113,7 +117,7 @@ const Login = () => {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors"
+              className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-xl font-medium hover:shadow-lg hover:shadow-amber-400/20 transition-all"
             >
               Sign In
               <ArrowRight className="w-5 h-5" />
@@ -127,7 +131,7 @@ const Login = () => {
               For inquiries, please{" "}
               <Link
                 to="/contact"
-                className="text-primary hover:text-primary/80"
+                className="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300"
               >
                 contact the designer
               </Link>

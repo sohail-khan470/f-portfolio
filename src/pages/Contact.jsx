@@ -121,8 +121,38 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-24 pb-20">
-      <div className="container mx-auto px-6">
+    <div className="pt-24 pb-20 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            opacity: [0.02, 0.03, 0.02],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-amber-100/10 to-yellow-200/10 blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [90, 0, 90],
+            opacity: [0.03, 0.02, 0.03],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-orange-100/10 to-amber-200/10 blur-3xl"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -130,7 +160,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Let's<span className="text-primary"> Connect</span>
+            Let's
+            <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-orange-400 bg-clip-text text-transparent">
+              {" "}
+              Connect
+            </span>
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
             Have a project in mind? Let's collaborate to create something
@@ -156,14 +190,14 @@ const Contact = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * index }}
                   whileHover={{ x: 10 }}
-                  className="flex items-start gap-4 p-4 rounded-2xl hover:bg-bg-secondary transition-colors group"
+                  className="flex items-start gap-4 p-4 rounded-2xl hover:bg-gradient-to-br hover:from-amber-50/60 hover:via-yellow-50/60 hover:to-orange-50/60 dark:hover:from-amber-900/10 dark:hover:via-yellow-900/10 dark:hover:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25 transition-colors group"
                 >
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                  <div className="p-3 rounded-xl bg-amber-100/60 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-yellow-400 group-hover:text-gray-900 transition-colors border border-amber-200/35 dark:border-amber-700/25">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                    <p className="text-text-primary mb-1 group-hover:text-primary transition-colors">
+                    <p className="text-text-primary mb-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       {item.value}
                     </p>
                     <p className="text-sm text-text-secondary">
@@ -188,7 +222,7 @@ const Contact = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 }}
                     whileHover={{ y: -4 }}
-                    className={`flex items-center gap-2 px-5 py-3 rounded-full bg-bg-secondary ${social.color} transition-all`}
+                    className={`flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25 hover:shadow-lg hover:shadow-amber-400/20 transition-all`}
                   >
                     <social.icon className="w-5 h-5" />
                     <span className="font-medium">{social.label}</span>
@@ -202,7 +236,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-12 p-6 rounded-2xl bg-linear-to-br from-primary/10 via-secondary/10 to-transparent"
+              className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25"
             >
               <h3 className="text-xl font-semibold mb-4">
                 Current Availability
@@ -226,7 +260,7 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <div className="bg-bg-secondary rounded-2xl p-8 md:p-10">
+            <div className="bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 rounded-2xl p-8 md:p-10 border border-amber-200/35 dark:border-amber-700/25">
               <h2 className="text-3xl font-bold mb-2">Send a Message</h2>
               <p className="text-text-secondary mb-8">
                 Fill out the form below and I'll get back to you within 24
@@ -246,7 +280,7 @@ const Contact = () => {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-primary hover:text-primary/80 transition-colors"
+                    className="text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
                   >
                     Send another message
                   </button>
@@ -264,7 +298,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-bg-primary rounded-xl border border-accent/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-bg-primary rounded-xl border border-amber-200/35 dark:border-amber-700/25 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-transparent transition-all"
                         placeholder="John Doe"
                       />
                     </div>
@@ -279,7 +313,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-bg-primary rounded-xl border border-accent/20 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 bg-bg-primary rounded-xl border border-amber-200/35 dark:border-amber-700/25 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-transparent transition-all"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -320,7 +354,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white rounded-xl font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-xl font-medium hover:shadow-lg hover:shadow-amber-400/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -376,9 +410,9 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 + index * 0.1 }}
                     whileHover={{ y: -5 }}
-                    className="p-4 rounded-xl bg-bg-secondary text-center"
+                    className="p-4 rounded-xl bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25 text-center"
                   >
-                    <div className="text-2xl font-bold text-primary mb-2">
+                    <div className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-2">
                       {step.number}
                     </div>
                     <div className="font-semibold mb-1">{step.title}</div>
@@ -397,7 +431,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 p-8 rounded-2xl bg-linear-to-r from-primary/5 via-secondary/5 to-primary/5 border border-accent/10"
+          className="mt-20 p-8 rounded-2xl bg-gradient-to-r from-amber-50/30 via-yellow-50/30 to-orange-50/30 dark:from-amber-950/10 dark:via-yellow-950/10 dark:to-orange-950/10 border border-amber-200/35 dark:border-amber-700/25"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -411,7 +445,7 @@ const Contact = () => {
               </p>
               <a
                 href="mailto:hello@sania.design"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-full font-medium hover:shadow-lg hover:shadow-amber-400/20 transition-all"
               >
                 <Mail className="w-5 h-5" />
                 Start a Conversation
@@ -423,7 +457,7 @@ const Contact = () => {
                 {/* Decorative map placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <MapPin className="w-12 h-12 text-amber-600 dark:text-amber-400 mx-auto mb-4" />
                     <span className="text-text-secondary">
                       San Francisco Bay Area
                     </span>
@@ -441,7 +475,7 @@ const Contact = () => {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-primary"
+                  className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-amber-400"
                 />
                 <motion.div
                   animate={{
@@ -454,7 +488,7 @@ const Contact = () => {
                     ease: "easeInOut",
                     delay: 0.5,
                   }}
-                  className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-secondary"
+                  className="absolute bottom-1/3 right-1/4 w-2 h-2 rounded-full bg-yellow-400"
                 />
               </div>
             </div>

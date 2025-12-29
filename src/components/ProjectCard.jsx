@@ -11,7 +11,7 @@ const ProjectCard = ({ project, index, onClick }) => {
       onClick={onClick}
       className="group cursor-pointer h-full flex flex-col"
     >
-      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-4/3 bg-linear-to-br from-primary/10 to-secondary/10">
+      <div className="relative overflow-hidden rounded-2xl mb-4 aspect-4/3 bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25">
         {project.imageUrl ? (
           <img
             src={project.imageUrl}
@@ -33,10 +33,10 @@ const ProjectCard = ({ project, index, onClick }) => {
 
       <div className="px-2">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+          <h3 className="text-xl font-semibold group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
             {project.title}
           </h3>
-          <span className="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
+          <span className="text-sm text-amber-700 dark:text-amber-300 bg-amber-100/60 dark:bg-amber-900/20 px-3 py-1 rounded-full border border-amber-200/35 dark:border-amber-700/25">
             {project.category}
           </span>
         </div>
@@ -49,7 +49,7 @@ const ProjectCard = ({ project, index, onClick }) => {
           {project.tags?.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs text-text-secondary bg-bg-secondary px-2 py-1 rounded"
+              className="text-xs text-amber-700 dark:text-amber-300 bg-amber-50/60 dark:bg-amber-900/10 px-2 py-1 rounded border border-amber-200/35 dark:border-amber-700/25"
             >
               {tag}
             </span>

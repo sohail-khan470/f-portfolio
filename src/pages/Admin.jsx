@@ -46,8 +46,38 @@ const Admin = () => {
   }
 
   return (
-    <div className="pt-24 pb-20">
-      <div className="container mx-auto px-6">
+    <div className="pt-24 pb-20 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+            opacity: [0.02, 0.03, 0.02],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-amber-100/10 to-yellow-200/10 blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [90, 0, 90],
+            opacity: [0.03, 0.02, 0.03],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-gradient-to-br from-orange-100/10 to-amber-200/10 blur-3xl"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Admin Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -60,7 +90,9 @@ const Admin = () => {
               <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
               <p className="text-text-secondary">
                 Welcome,{" "}
-                <span className="text-primary font-medium">{user?.email}</span>
+                <span className="text-amber-600 dark:text-amber-400 font-medium">
+                  {user?.email}
+                </span>
               </p>
               <div className="flex items-center gap-1 text-sm text-text-secondary">
                 <Cloud className="w-4 h-4" />
@@ -77,7 +109,7 @@ const Admin = () => {
                 setEditingProject(null);
                 setShowForm(true);
               }}
-              className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-full font-medium hover:shadow-lg hover:shadow-amber-400/20 transition-all"
             >
               <Plus className="w-5 h-5" />
               Add Project
@@ -87,7 +119,7 @@ const Admin = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={logout}
-              className="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary/10 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 border-2 border-amber-400 text-amber-600 dark:text-amber-400 rounded-full font-medium hover:bg-amber-50/60 dark:hover:bg-amber-900/20 transition-colors"
             >
               <LogOut className="w-5 h-5" />
               Logout
@@ -102,28 +134,28 @@ const Admin = () => {
           transition={{ delay: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10"
         >
-          <div className="p-6 rounded-2xl bg-linear-to-br from-primary/10 to-secondary/10">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25">
             <div className="text-3xl font-bold mb-2">{projects.length}</div>
             <div className="text-text-secondary">Total Projects</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-linear-to-br from-secondary/10 to-accent/10">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-yellow-50/60 via-orange-50/60 to-amber-50/60 dark:from-yellow-900/10 dark:via-orange-900/10 dark:to-amber-900/10 border border-yellow-200/35 dark:border-yellow-700/25">
             <div className="text-3xl font-bold mb-2">
               {projects.filter((p) => p.category === "Web Design").length}
             </div>
             <div className="text-text-secondary">Web Design</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-linear-to-br from-accent/10 to-primary/10">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-orange-50/60 via-amber-50/60 to-yellow-50/60 dark:from-orange-900/10 dark:via-amber-900/10 dark:to-yellow-900/10 border border-orange-200/35 dark:border-orange-700/25">
             <div className="text-3xl font-bold mb-2">
               {projects.filter((p) => p.featured).length}
             </div>
             <div className="text-text-secondary">Featured</div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-linear-to-br from-primary/10 to-accent/10">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/60 via-orange-50/60 to-yellow-50/60 dark:from-amber-900/10 dark:via-orange-900/10 dark:to-yellow-900/10 border border-amber-200/35 dark:border-amber-700/25">
             <div className="flex items-center justify-center">
-              <Cloud className="w-8 h-8 text-primary" />
+              <Cloud className="w-8 h-8 text-amber-600 dark:text-amber-400" />
             </div>
             <div className="text-text-secondary mt-2">Cloud Images</div>
           </div>
@@ -142,7 +174,7 @@ const Admin = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-16 rounded-2xl bg-bg-secondary"
+              className="text-center py-16 rounded-2xl bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25"
             >
               <div className="text-6xl mb-6">📁</div>
               <h3 className="text-2xl font-semibold mb-3">No projects yet</h3>
@@ -152,7 +184,7 @@ const Admin = () => {
               </p>
               <button
                 onClick={() => setShowForm(true)}
-                className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+                className="px-8 py-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-full font-medium hover:shadow-lg hover:shadow-amber-400/20 transition-all"
               >
                 Create Your First Project
               </button>
@@ -166,10 +198,10 @@ const Admin = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
-                  className="group relative overflow-hidden rounded-2xl bg-bg-secondary"
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10 border border-amber-200/35 dark:border-amber-700/25"
                 >
                   {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden bg-linear-to-br from-primary/10 to-secondary/10">
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-amber-50/60 via-yellow-50/60 to-orange-50/60 dark:from-amber-900/10 dark:via-yellow-900/10 dark:to-orange-900/10">
                     {project.imageUrl ? (
                       <>
                         <img
@@ -214,11 +246,11 @@ const Admin = () => {
                       </h3>
                       <div className="flex flex-col items-end gap-1">
                         {project.featured && (
-                          <span className="text-xs px-2 py-1 bg-primary text-white rounded-full">
+                          <span className="text-xs px-2 py-1 bg-gradient-to-r from-amber-400 to-yellow-400 text-gray-900 rounded-full">
                             Featured
                           </span>
                         )}
-                        <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">
+                        <span className="text-xs px-2 py-1 bg-amber-100/60 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 rounded-full border border-amber-200/35 dark:border-amber-700/25">
                           {project.category}
                         </span>
                       </div>
@@ -232,7 +264,7 @@ const Admin = () => {
                       <span className="text-text-secondary">
                         {project.year}
                       </span>
-                      <span className="text-primary font-medium">
+                      <span className="text-amber-600 dark:text-amber-400 font-medium">
                         {project.client || "Personal Project"}
                       </span>
                     </div>
@@ -243,7 +275,7 @@ const Admin = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handleEdit(project)}
-                        className="flex-1 text-center py-2 text-sm bg-bg-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
+                        className="flex-1 text-center py-2 text-sm bg-bg-primary rounded-lg hover:bg-gradient-to-r hover:from-amber-400 hover:to-yellow-400 hover:text-gray-900 transition-colors"
                       >
                         Edit
                       </button>
@@ -266,15 +298,15 @@ const Admin = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-2xl bg-linear-to-r from-primary/5 to-secondary/5 border border-accent/10 p-8"
+          className="rounded-2xl bg-gradient-to-r from-amber-50/30 via-yellow-50/30 to-orange-50/30 dark:from-amber-950/10 dark:via-yellow-950/10 dark:to-orange-950/10 border border-amber-200/35 dark:border-amber-700/25 p-8"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Cloud className="w-6 h-6 text-primary" />
+            <Cloud className="w-6 h-6 text-amber-600 dark:text-amber-400" />
             <h3 className="text-xl font-semibold">Cloudinary Image Hosting</h3>
           </div>
           <ul className="grid md:grid-cols-2 gap-4">
             <li className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm font-bold">
+              <div className="w-6 h-6 rounded-full bg-amber-100/60 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 flex items-center justify-center text-sm font-bold border border-amber-200/35 dark:border-amber-700/25">
                 1
               </div>
               <span className="text-text-secondary">
