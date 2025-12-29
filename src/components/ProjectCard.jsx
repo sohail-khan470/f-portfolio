@@ -9,7 +9,7 @@ const ProjectCard = ({ project, index, onClick }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8 }}
       onClick={onClick}
-      className="group cursor-pointer"
+      className="group cursor-pointer h-full flex flex-col"
     >
       <div className="relative overflow-hidden rounded-2xl mb-4 aspect-4/3 bg-linear-to-br from-primary/10 to-secondary/10">
         {project.imageUrl ? (

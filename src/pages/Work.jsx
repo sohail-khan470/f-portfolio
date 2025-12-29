@@ -10,18 +10,7 @@ const Work = () => {
     fetchProjects();
   }, []);
 
-  // Editorial staggered layout
-  const getColumnClass = (index) => {
-    const patterns = [
-      "lg:col-span-7 lg:row-span-2", // Large card
-      "lg:col-span-5", // Medium card
-      "lg:col-span-5 lg:col-start-8", // Medium card offset
-      "lg:col-span-4", // Small card
-      "lg:col-span-4", // Small card
-      "lg:col-span-4", // Small card
-    ];
-    return patterns[index % patterns.length];
-  };
+  // Uniform grid layout for equal card sizes
 
   return (
     <motion.div
@@ -53,7 +42,7 @@ const Work = () => {
       {/* Staggered Grid */}
       <section className="px-8 md:px-16 pb-32">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 auto-rows-[300px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -64,7 +53,7 @@ const Work = () => {
                   delay: index * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`${getColumnClass(index)}`}
+                className="h-80"
               >
                 <ProjectCard project={project} index={index} />
               </motion.div>
