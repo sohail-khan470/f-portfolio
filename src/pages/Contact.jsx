@@ -28,51 +28,51 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@sania.design",
-      link: "mailto:hello@sania.design",
+      value: "hello@fatima.design",
+      link: "mailto:hello@fatima.design",
       description: "For project inquiries and collaborations",
     },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-      description: "Available Monday to Friday, 9AM - 6PM EST",
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Phone",
+    //   value: "+92 (0322) 123-4567",
+    //   link: "tel:+15551234567",
+    //   description: "Available Monday to Friday, 9AM - 6PM EST",
+    // },
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Islamabad, PK",
       link: "#",
       description: "Working remotely with clients worldwide",
     },
   ];
 
   const socialLinks = [
-    {
-      icon: Dribbble,
-      label: "Dribbble",
-      url: "https://dribbble.com/sania",
-      color: "hover:text-pink-600",
-    },
-    {
-      icon: Palette,
-      label: "Behance",
-      url: "https://behance.net/sania",
-      color: "hover:text-blue-600",
-    },
+    // {
+    //   icon: Dribbble,
+    //   label: "Dribbble",
+    //   url: "https://dribbble.com/sania",
+    //   color: "hover:text-pink-600",
+    // },
+    // {
+    //   icon: Palette,
+    //   label: "Behance",
+    //   url: "https://behance.net/sania",
+    //   color: "hover:text-blue-600",
+    // },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/sania",
+      url: "https://linkedin.com/in/fatima",
       color: "hover:text-blue-700",
     },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      url: "https://twitter.com/sania",
-      color: "hover:text-sky-500",
-    },
+    // {
+    //   icon: Twitter,
+    //   label: "Twitter",
+    //   url: "https://twitter.com/sania",
+    //   color: "hover:text-sky-500",
+    // },
   ];
 
   const handleSubmit = async (e) => {
