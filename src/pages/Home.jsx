@@ -75,15 +75,16 @@ const Home = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden">
-                {/* Profile image placeholder - replace with actual image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20" />
+              <div className="relative w-full h-[500px] rounded-3xl overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100">
+                <img
+                  src="/fama1.png"
+                  alt="Fatima's Portfolio Image"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
 
                 {/* Decorative elements */}
                 <motion.div
-                  animate={{
-                    y: [0, -20, 0],
-                  }}
+                  animate={{ y: [0, -20, 0] }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
@@ -92,9 +93,7 @@ const Home = () => {
                   className="absolute top-10 right-10 w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/30"
                 />
                 <motion.div
-                  animate={{
-                    y: [0, 20, 0],
-                  }}
+                  animate={{ y: [0, 20, 0] }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
