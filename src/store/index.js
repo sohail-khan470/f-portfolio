@@ -16,7 +16,7 @@ import {
 import { auth, db } from "../firebase/config";
 import { uploadToCloudinary, deleteFromCloudinary } from "../utils/cloudinary";
 
-const ADMIN_EMAILS = ["sohailturk470@gmail.com", "developer@studio.com"];
+const ADMIN_EMAILS = ["sohailturk470@gmail.com", "tuzahrafatima3@gmail.com"];
 
 const useStore = create((set, get) => ({
   // Auth state
