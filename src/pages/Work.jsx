@@ -1,11 +1,10 @@
-// pages/Work.jsx
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useProjects } from "../store/projectStore";
+import useStore from "../store";
 import ProjectCard from "../components/ProjectCard";
 
 const Work = () => {
-  const { projects, fetchProjects } = useProjects();
+  const { projects, fetchProjects } = useStore();
 
   useEffect(() => {
     fetchProjects();
